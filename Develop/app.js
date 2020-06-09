@@ -38,54 +38,41 @@ const initQuestions = [
         message: "What is your role?",
         choices: ["Manager", "Engineer", "Intern"],
         name: "role"
-    }
+    },
 
-];
-
-const addAnother = {
-    type: "confirm",
-    message: "Add another employee?",
-    name: "addAnother"
-};
-
-const managerQuestions = [
     {
         type: "input",
         message: "Enter your office number",
+        when: function(answers) {
+            return (answers.role === "Manager")
+        },
         name: "officeNumber"
     },
 
-    addAnother
-];
-
-const engineerQuestions = [
     {
         type: "input",
         message: "Enter your GitHub username",
+        when: function(answers) {
+            return (answers.role === "Engineer")
+        },
         name: "github"
     },
 
-    addAnother
-];
-
-const internQuestions = [
     {
         type: "input",
         message: "Enter your school's name",
+        when: function(answers) {
+            return (answers.role === "Intern")
+        },
         name: "school"
     },
 
-    addAnother
+    {
+        type: "confirm",
+        message: "Add another employee?",
+        name: "addAnother"
+    }
 ];
-
-function writeToFile(fileName, data) {
-
-    fs.writeFile(fileName, render(data), function(error) {
-        if (error) console.log(error);
-        else console.log('Success!');
-    });
-
-}
 
 function init() {
 
@@ -93,39 +80,13 @@ function init() {
     .prompt(initQuestions)
     .then( response => {
         
-        if (response.role === "Manager") {
-            inquirer
-            .prompt(managerQuestions)
-            .then( response => {
-                console.log(response);
-                if(response.addAnother) init();
-            });
-        };
-
-        if (response.role === "Engineer") {
-            inquirer
-            .prompt(engineerQuestions)
-            .then( response => {
-                console.log(response);
-                if(response.addAnother) init();
-            });
-        };
-
-        if (response.role === "Intern") {
-            inquirer
-            .prompt(internQuestions)
-            .then( response => {
-                console.log(response);
-                if(response.addAnother) init();
-            });
-        };
+        console.log(response);
 
     });
 
 }
 
 init();
-
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
