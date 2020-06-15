@@ -1,0 +1,14 @@
+body {
+
+    background-image: url(../../Assets/Images/desk.jpg);
+    background-size: cover;
+    background-color: #D3AC8B;
+}
+
+.jumbotron {
+    background-color: #E8E8E6;
+}
+
+.card-header {
+    background-color: skyblue;
+}
