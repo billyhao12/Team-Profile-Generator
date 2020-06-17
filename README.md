@@ -11,7 +11,6 @@ This application generates an HTML page of a business's team members and key inf
 * [Credits](#credits)
 * [License](#license)
 * [Contributing](#contributing)
-* [Tests](#tests)
 * [Questions](#questions)
 
 ## Installation
