@@ -22,6 +22,12 @@ Run this application using Node.js.
 
 After running app.js from the Develop directory, answer a series of prompts to generate the HTML file.
 
+Screenshot of the Node application:
+![Node Screenshot](Assets/Images/appInNode2.png)
+
+A successfully generated HTML file:
+![Generated Page](Assets/Images/generatedPage.png)
+
 ## Credits
 
 Developed with support from the University of Washington's Coding Boot Camp.
